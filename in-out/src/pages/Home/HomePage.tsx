@@ -1,18 +1,16 @@
-// import React from "react";
-import { Stack, ThemeProvider,} from "@mui/material";
-import theme from "../../themes/theme";
-import LogoComp from "../../components/Landing/logo";
+import LogoComp from "../../components/Landing/Logo";
+import { Stack } from "@mui/material";
 
 function HomePage() {
     return (
-        <ThemeProvider theme={theme}>
-            <Stack sx={{
-                width: '100vw',
-                height: '100vh',
-            }}>
-                <LogoComp />
-            </Stack>
-        </ThemeProvider>
+        <Stack sx={{
+            width: '100%',
+            height: '100%',
+            minHeight: '100vh',
+            overflow: 'hidden',
+        }}>
+            <LogoComp />
+        </Stack>
     )
 };
 

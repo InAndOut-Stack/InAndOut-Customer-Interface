@@ -6,58 +6,75 @@ import colors from '../../themes/colors';
 
 function Logo() {
     return (
-        <Stack  sx={{
-            display: 'flex',
+        // <>
+        <Stack sx={{
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100%',
+            height: '100vh',
+            width: '100vw',
         }}>
-            <Box>
-                <Typography sx={{
-                    fontSize: '128px',
-                    fontFamily: '"M PLUS 1c", sans-serif',
-                    fontWeight: 700,
-                    color: theme.palette.primary.main,
-                    textShadow: `5px 0 0 ${colors.StrokeColor},
-                                -5px 0 0 ${colors.StrokeColor}, 
-                                0 5px 0 ${colors.StrokeColor},
-                                0 -5px 0 ${colors.StrokeColor},
-                                4px 4px 0 ${colors.StrokeColor},
-                                -4px 4px 0 ${colors.StrokeColor},
-                                4px -4px 0 ${colors.StrokeColor},
-                                -4px -4px 0 ${colors.StrokeColor}`,
-                    letterSpacing: '2px',
-                }}>
-                    IN&OUT
-                </Typography>
-            </Box>
-            <Button sx={{}}>
-                <Box sx={{
+            <Stack sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '128px',
+            }}>
+                <Box>
+                    <Typography sx={{
+                        fontSize: '128px',
+                        fontWeight: 700,
+                        color: theme.palette.primary.main,
+                        // textShadow: `5px 0 0 ${colors.StrokeColor},
+                        //         -5px 0 0 ${colors.StrokeColor}, 
+                        //         0 5px 0 ${colors.StrokeColor},
+                        //         0 -5px 0 ${colors.StrokeColor},
+                        //         5px 5px 0 ${colors.StrokeColor},
+                        //         -5px 5px 0 ${colors.StrokeColor},
+                        //         5px 5px 0 ${colors.StrokeColor},
+                        //         -5px -5px 0 ${colors.StrokeColor}`,
+                        WebkitTextStroke: `0.3rem ${colors.StrokeColor}`,
+                        letterSpacing: '2px',
+                    }}>
+                        IN&OUT
+                    </Typography>
+                </Box>
+                <Button sx={{
+                    width: '16rem',
+                    height: '5rem',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px',
                 }}>
-                    <Typography sx={{
-                    fontSize: '32px',
-                    fontFamily: '"M PLUS 1c", sans-serif',
-                    fontWeight: 700,
-                    color: colors.Accent1Color,
-                    // WebkitTextStroke: `1.7px ${colors.Accent1Color}`,
-                    }}> 
-                    Start 
-                    </Typography>
-                    <TrendingFlatRoundedIcon sx={{
-                        fontFamily: 'inherit', 
-                        fontSize: '40px', 
-                        color: `${colors.Accent1Color}`,
-                        // border: `2px solid ${colors.Accent1Color}`,
-                    }}> 
-                    </TrendingFlatRoundedIcon> 
-                </Box>
-                
-            </Button>
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                    }}>
+                        <Typography sx={{
+                            fontSize: '32px',
+                            fontWeight: 700,
+                            color: colors.Accent1Color,
+                            // color: colors.MainColor,
+                            // WebkitTextStroke: `0.12rem ${colors.Accent1Color}`,
+                        }}>
+                            Start
+                        </Typography>
+                        <TrendingFlatRoundedIcon sx={{
+                            fontFamily: 'inherit',
+                            fontSize: '40px',
+                            color: `${colors.Accent1Color}`,
+                            // border: `2px solid ${colors.Accent1Color}`,
+                        }}>
+                        </TrendingFlatRoundedIcon>
+                    </Box>
+
+                </Button>
+            </Stack>
+
         </Stack>
+
+        /* </> */
     )
 };
 

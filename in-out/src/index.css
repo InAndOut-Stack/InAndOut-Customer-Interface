@@ -22,14 +22,43 @@
   min-height: 100vh;
 } */
 
-.m-plus-rounded-1c-regular {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+@font-face {
+  font-family: 'Creato';
+  src: url('./assets/fonts/creato/CreatoDisplay-Medium.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
-.m-plus-rounded-1c-extrabold {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+@font-face {
+  font-family: 'Creato';
+  src: url('./assets/fonts/creato/CreatoDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato';
+  src: url('./assets/fonts/creato/CreatoDisplay-ExtraBold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Creato';
+  src: url('./assets/fonts/creato/CreatoDisplay-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato';
+  src: url('./assets/fonts/creato/CreatoDisplay-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+

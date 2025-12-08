@@ -8,7 +8,7 @@ const theme = createTheme({
         }
     },
     typography: {
-        fontFamily: '"M PLUS Rounded 1c", sans-serif',
+        fontFamily: ['"Creato", sans-serif'].join(','),
     },
     components: {
         MuiButton: {
@@ -16,7 +16,7 @@ const theme = createTheme({
                 root: {
                     borderRadius: '80px',
                     backgroundColor: colors.MainColor,
-                    border: `3px solid ${colors.Accent1Color}`,
+                    border: `5px solid ${colors.Accent1Color}`,
                     padding: '8px 24px',
                 }
             }
