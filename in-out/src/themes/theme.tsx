@@ -20,6 +20,20 @@ const theme = createTheme({
                     padding: '8px 24px',
                 }
             }
+        },
+        MuiGrid:{
+            styleOverrides: {
+                root: {
+                    backgroundColor: colors.MainColor,
+                }
+            }
+        },
+        MuiStack:{
+            styleOverrides: {
+                root: {
+                    backgroundColor: colors.MainColor,
+                }
+            }
         }
     }
 });
