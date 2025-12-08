@@ -22,7 +22,7 @@ function Logo() {
                 <Box>
                     <Typography sx={{
                         fontSize: '128px',
-                        fontWeight: 700,
+                        fontWeight: 800,
                         color: theme.palette.primary.main,
                         // textShadow: `5px 0 0 ${colors.StrokeColor},
                         //         -5px 0 0 ${colors.StrokeColor}, 
@@ -32,8 +32,13 @@ function Logo() {
                         //         -5px 5px 0 ${colors.StrokeColor},
                         //         5px 5px 0 ${colors.StrokeColor},
                         //         -5px -5px 0 ${colors.StrokeColor}`,
-                        WebkitTextStroke: `0.3rem ${colors.StrokeColor}`,
-                        letterSpacing: '2px',
+                        WebkitTextStroke: `0.23rem ${colors.StrokeColor}`,
+                        filter: `
+                            drop-shadow(0px 0px 0px ${colors.StrokeColor}) 
+                            drop-shadow(1px 0px 0px ${colors.StrokeColor}) 
+                            drop-shadow(-1px 0px 0px ${colors.StrokeColor}) 
+                            drop-shadow(0px -0px 0px ${colors.StrokeColor})
+                            `
                     }}>
                         IN&OUT
                     </Typography>
