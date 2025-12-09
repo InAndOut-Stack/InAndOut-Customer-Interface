@@ -42,7 +42,7 @@ function Logo() {
                                 `
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
-                            the <i>only</i> web application that makes shopping easier by reducing the time spent searching for the right isle
+                            we've made shopping easy by providing the fastest route for the products that you want
                         </Typography>
                     </Stack>
                 </Grid>
@@ -125,7 +125,7 @@ function Logo() {
                                 `
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
-                            simply add your preffered product choices and we’ll create the fastest route of the store 
+                            after a long day at work, get in and out of the store as quickly as possible with everything you need
                         </Typography>
                     </Stack>
                 </Grid>
