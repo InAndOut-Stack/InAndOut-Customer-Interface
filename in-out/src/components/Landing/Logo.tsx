@@ -35,6 +35,7 @@ function Logo() {
                         <Typography sx={{
                             color: colors.whiteColor,
                             fontSize: '40px',
+                            fontFamily: '"Creato", sans-serif',
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
                             the only web application that makes shopping easier by reducing the time spent searching for the right isle
@@ -51,6 +52,7 @@ function Logo() {
                         <Box>
                             <Typography sx={{
                                 fontSize: '128px',
+                                fontFamily: '"Creato", sans-serif',
                                 fontWeight: 800,
                                 color: theme.palette.primary.main,
                                 WebkitTextStroke: `0.23rem ${colors.greenColor}`,
@@ -81,6 +83,7 @@ function Logo() {
                                 <Typography sx={{
                                     fontSize: '32px',
                                     fontWeight: 700,
+                                    fontFamily: '"Creato", sans-serif',
                                     color: colors.orangeColor,
                                     // color: colors.MainColor,
                                     // WebkitTextStroke: `0.12rem ${colors.Accent1Color}`,
@@ -104,12 +107,14 @@ function Logo() {
                         display: 'flex',
                         width: '100%',
                         justifyContent: 'center',
-                        alignItems: 'flex-start',
+                        alignItems: 'center',
                         gap: '128px',
                     }}>
                         <Typography sx={{
                             color: colors.whiteColor,
                             fontSize: '40px',
+                            fontFamily: '"Creato", sans-serif',
+                            textAlign: 'right'
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
                             simply add your preffered product choices and we’ll create the fastest route of the store 
