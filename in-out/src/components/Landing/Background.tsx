@@ -28,24 +28,29 @@ const CustomBackground: React.FC<{ children: React.ReactNode }> = ({ children })
         sx={{
           position: 'absolute',
           inset: 0,
-          zIndex: 0,
+          zIndex: -1,
           pointerEvents: 'none',
           // radial gradient background
           backgroundImage: `radial-gradient(
             circle at 5% 5%, 
-            ${colors.whiteColor} 9%,    
-            ${colors.greenColor} 24%,         
-            ${colors.whiteColor} 35%,
-            ${colors.whiteColor} 49%,   
-            ${colors.orangeColor} 61%,        
-            ${colors.greenColor} 78%,        
-            ${colors.whiteColor} 89%
+            ${colors.greenColor} 10%,         
+            ${colors.orangeColor} 25%,
+            ${colors.whiteColor} 36%,   
+            ${colors.orangeColor} 50%,        
+            ${colors.greenColor} 99%,        
+            ${colors.whiteColor} 99%
           )`,
           transform: 'scale(1.1)',
           transformOrigin: 'center center',
         }}
-      />
-      {children}
+      /> 
+      <Stack sx={{ 
+        position: 'relative', 
+        zIndex: 10, 
+        width: '100%' 
+      }}>
+        {children}
+      </Stack>
     </Stack>
   );
 };

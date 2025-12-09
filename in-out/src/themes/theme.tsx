@@ -9,6 +9,7 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: ['"Creato", sans-serif'].join(','),
+        fontSize: 16,
     },
     components: {
         MuiButton: {
@@ -24,14 +25,14 @@ const theme = createTheme({
         MuiGrid:{
             styleOverrides: {
                 root: {
-                    backgroundColor: colors.whiteColor,
+                    // backgroundColor: colors.whiteColor,
                 }
             }
         },
         MuiStack:{
             styleOverrides: {
                 root: {
-                    backgroundColor: colors.whiteColor,
+                    // backgroundColor: colors.whiteColor,
                 }
             }
         }
