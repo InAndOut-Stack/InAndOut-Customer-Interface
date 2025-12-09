@@ -36,9 +36,13 @@ function Logo() {
                             color: colors.whiteColor,
                             fontSize: '40px',
                             fontFamily: '"Creato", sans-serif',
+                            lineHeight: "41px",
+                            filter: `
+                                drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
+                                `
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
-                            the only web application that makes shopping easier by reducing the time spent searching for the right isle
+                            the <i>only</i> web application that makes shopping easier by reducing the time spent searching for the right isle
                         </Typography>
                     </Stack>
                 </Grid>
@@ -57,10 +61,7 @@ function Logo() {
                                 color: theme.palette.primary.main,
                                 WebkitTextStroke: `0.23rem ${colors.greenColor}`,
                                 filter: `
-                                drop-shadow(0px 0px 0px ${colors.greenColor}) 
-                                drop-shadow(1px 0px 0px ${colors.greenColor}) 
-                                drop-shadow(-1px 0px 0px ${colors.greenColor}) 
-                                drop-shadow(0px -0px 0px ${colors.greenColor})
+                                drop-shadow(0px 1.5px 1.25px ${colors.blackColor}) 
                                 `
                             }}>
                                 IN&OUT
@@ -73,6 +74,9 @@ function Logo() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            filter: `
+                                drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
+                                `
                         }}>
                             <Box sx={{
                                 display: 'flex',
@@ -114,7 +118,11 @@ function Logo() {
                             color: colors.whiteColor,
                             fontSize: '40px',
                             fontFamily: '"Creato", sans-serif',
-                            textAlign: 'right'
+                            textAlign: 'right',
+                            lineHeight: "41px",
+                            filter: `
+                                drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
+                                `
                             // WebkitTextStroke: `0.06rem ${colors.orangeColor}`,
                         }}>
                             simply add your preffered product choices and we’ll create the fastest route of the store 
