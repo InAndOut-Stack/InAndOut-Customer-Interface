@@ -12,14 +12,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-      {/* CONTAINERUL PRINCIPAL: Are poziție relativă pentru stacking context. */}
+    {/* 
+      CONTAINERUL PRINCIPAL: Are poziție relativă pentru stacking context.
       <Box sx={{ position: 'fixed', minHeight: '100vh' }}>
       
-        {/* 1. FUNDALUL (Are zIndex: -1, deci merge în spate) */}
+      1. FUNDALUL (Are zIndex: -1, deci merge în spate)
         <CustomBackground />
       
-    </Box>
+    </Box> */}
 
         {/* <Router>
           <Routes>

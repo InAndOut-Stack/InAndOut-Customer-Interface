@@ -1,48 +1,53 @@
-import Box from '@mui/material/Box';
-import { keyframes } from '@emotion/react';
+import React from 'react';
 
-const COLOR_ORANGE = '#FD9B08';
-const COLOR_GREEN = '#ABE158';
-const COLOR_WHITE = '#F8FFED';
+import { Stack } from '@mui/material';
 
-const float = keyframes`
-  0% { transform: scale(1.0) translate(0px, 0px); }
-  50% { transform: scale(1.05) translate(20px, -20px); } /* Se mișcă puțin */
-  100% { transform: scale(1.0) translate(0px, 0px); }
-`;
+// import { keyframes } from '@emotion/react';
+import colors from '../../themes/colors';
 
-export default function CustomBackground() {
-  return (
-    <Box
+// const float = keyframes`
+//   0% { transform: scale(1.0) translate(0px, 0px); }
+//   50% { transform: scale(1.05) translate(20px, -20px); } /* Se mișcă puțin */
+//   100% { transform: scale(1.0) translate(0px, 0px); }
+// `;
+
+const CustomBackground: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    return (
+    <Stack
       sx={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: -1000,
+        position: 'relative',
+        width: '100%',
+        minHeight: '100vh',
         overflow: 'hidden',
-
-        // 🚨 PROPRIETATEA CHEIE: RADIAL GRADIENT 🚨
-        backgroundImage: `radial-gradient(
-          circle at 5% 5%, 
-          ${COLOR_ORANGE} 9%,    
-          ${COLOR_GREEN} 24%,         
-          ${COLOR_WHITE} 35%,
-          ${COLOR_WHITE} 49%,   
-          ${COLOR_ORANGE} 61%,        
-          ${COLOR_GREEN} 78%,        
-          ${COLOR_WHITE} 89%
-        )`,
-
-        // Mărim gradientul pentru a crea efectul de "neclar" (blur/blob)
-        // Îl poți face chiar mai mare, de exemplu 'scale(3)'
-        transform: 'scale(1.1)', 
-        transformOrigin: 'center center',
-
-        // Opțional: Aplicația animației
-        // animation: `${float} 15s ease-in-out infinite alternate`,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
-    />
+    >
+      <Stack
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: 'none',
+          // radial gradient background
+          backgroundImage: `radial-gradient(
+            circle at 5% 5%, 
+            ${colors.whiteColor} 9%,    
+            ${colors.greenColor} 24%,         
+            ${colors.whiteColor} 35%,
+            ${colors.whiteColor} 49%,   
+            ${colors.orangeColor} 61%,        
+            ${colors.greenColor} 78%,        
+            ${colors.whiteColor} 89%
+          )`,
+          transform: 'scale(1.1)',
+          transformOrigin: 'center center',
+        }}
+      />
+      {children}
+    </Stack>
   );
-}
+};
+
+export default CustomBackground;

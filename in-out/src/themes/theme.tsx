@@ -4,7 +4,7 @@ import colors from './colors';
 const theme = createTheme({
     palette: {
         primary: {
-            main: colors.MainColor
+            main: colors.whiteColor,
         }
     },
     typography: {
@@ -15,8 +15,8 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     borderRadius: '80px',
-                    backgroundColor: colors.MainColor,
-                    border: `5px solid ${colors.Accent1Color}`,
+                    backgroundColor: colors.whiteColor,
+                    border: `5px solid ${colors.orangeColor}`,
                     padding: '8px 24px',
                 }
             }
@@ -24,14 +24,14 @@ const theme = createTheme({
         MuiGrid:{
             styleOverrides: {
                 root: {
-                    backgroundColor: colors.MainColor,
+                    backgroundColor: colors.whiteColor,
                 }
             }
         },
         MuiStack:{
             styleOverrides: {
                 root: {
-                    backgroundColor: colors.MainColor,
+                    backgroundColor: colors.whiteColor,
                 }
             }
         }
