@@ -22,6 +22,14 @@
   min-height: 100vh;
 } */
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; /* Recomandat pentru layout */
+}
+
 @font-face {
   font-family: 'Creato';
   src: url('./assets/fonts/creato/CreatoDisplay-Medium.otf') format('opentype');
