@@ -59,17 +59,17 @@ function Logo() {
                                 fontFamily: '"Creato", sans-serif',
                                 fontWeight: 800,
                                 color: theme.palette.primary.main,
-                                WebkitTextStroke: `0.23rem ${colors.greenColor}`,
+                                WebkitTextStroke: `0.12rem ${colors.greenColor}`,
                                 filter: `
                                 drop-shadow(0px 1.5px 1.25px ${colors.blackColor}) 
                                 `
                             }}>
                                 IN&OUT
-                            </Typography>
+                            </Typography> 
                         </Box>
 
                         <Button sx={{
-                            width: '16rem',
+                            width: '10.5rem',
                             height: '5rem',
                             display: 'flex',
                             alignItems: 'center',
@@ -86,9 +86,10 @@ function Logo() {
                             }}>
                                 <Typography sx={{
                                     fontSize: '32px',
-                                    fontWeight: 700,
+                                    fontWeight: 500,
                                     fontFamily: '"Creato", sans-serif',
                                     color: colors.orangeColor,
+                                    textTransform: 'none', // il facea uppercase for no reason
                                     // color: colors.MainColor,
                                     // WebkitTextStroke: `0.12rem ${colors.Accent1Color}`,
                                 }}>
