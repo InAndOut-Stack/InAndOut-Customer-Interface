@@ -3,6 +3,9 @@ import React from 'react';
 import { Stack, Typography, Box, Button, Grid } from '@mui/material';
 import CustomBackground from './Background';
 
+import TitleImage from '../../assets/inandoutTITLE.png';
+import BackgroundImages from '../../assets/images_under_title.png';
+
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
 import theme from '../../themes/theme';
@@ -37,6 +40,7 @@ function Logo() {
                             fontSize: '40px',
                             fontFamily: '"Creato", sans-serif',
                             lineHeight: "41px",
+                            maxWidth: '300px',
                             filter: `
                                 drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
                                 `
@@ -47,13 +51,32 @@ function Logo() {
                     </Stack>
                 </Grid>
                 <Grid size={4}>
+                    
+                    {/*avem aici imaginile din fundal: vin facute separat, dar le-am pus imagine momentan*/}
+                    
+                    <Box component="img"
+                         src={BackgroundImages}
+                         sx={{
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                width: '100%', 
+                                height: '100%',
+                                objectFit: 'scale-down',
+                                zIndex: -1, 
+          }}
+      />
                     <Stack sx={{
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
                         gap: '128px',
                     }}>
-                        <Box>
+
+
+                        <img src={TitleImage} alt="The main text for the homepage" style={{width: '100%', height: '100%', maxWidth: '600px', maxHeight: '400px'}} />
+                        
+                       {/* <Box>
                             <Typography sx={{
                                 fontSize: '128px',
                                 fontFamily: '"Creato", sans-serif',
@@ -67,6 +90,9 @@ function Logo() {
                                 IN&OUT
                             </Typography> 
                         </Box>
+                        
+                        putin mai are sens acum, dar il pastram in caz de orice
+                        */}
 
                         <Button sx={{
                             width: '10.5rem',
@@ -106,6 +132,7 @@ function Logo() {
 
                         </Button>
                     </Stack>
+
                 </Grid>
                 <Grid size={2}>
                     <Stack sx={{
@@ -121,6 +148,7 @@ function Logo() {
                             fontFamily: '"Creato", sans-serif',
                             textAlign: 'right',
                             lineHeight: "41px",
+                            maxWidth: '300px',
                             filter: `
                                 drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
                                 `
