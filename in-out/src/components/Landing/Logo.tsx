@@ -41,6 +41,7 @@ function Logo() {
                             fontFamily: '"Creato", sans-serif',
                             lineHeight: "41px",
                             maxWidth: '300px',
+                            letterSpacing: '-0.05em',
                             filter: `
                                 drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
                                 `
@@ -124,6 +125,7 @@ function Logo() {
                                     fontWeight: 500,
                                     fontFamily: '"Creato", sans-serif',
                                     color: colors.orangeColor,
+                                    letterSpacing: '-0.05em',
                                     textTransform: 'none', // il facea uppercase for no reason
                                     // color: colors.MainColor,
                                     // WebkitTextStroke: `0.12rem ${colors.Accent1Color}`,
@@ -158,6 +160,7 @@ function Logo() {
                             textAlign: 'right',
                             lineHeight: "41px",
                             maxWidth: '300px',
+                            letterSpacing: '-0.05em',
                             filter: `
                                 drop-shadow(0px 1.5px 0.7px ${colors.blackColor}) 
                                 `

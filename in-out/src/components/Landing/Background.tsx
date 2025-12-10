@@ -34,11 +34,12 @@ const CustomBackground: React.FC<{ children: React.ReactNode }> = ({ children })
           backgroundImage: `radial-gradient(
             circle at 5% 5%, 
             ${colors.greenColor} 10%,         
-            ${colors.orangeColor} 25%,
-            ${colors.whiteColor} 36%,   
-            ${colors.orangeColor} 50%,        
-            ${colors.greenColor} 99%,        
-            ${colors.whiteColor} 99%
+            ${colors.orangeColor} 18%,
+            ${colors.whiteColor} 38%,
+            ${colors.whiteColor} 41%,
+            ${colors.orangeColor} 53%,        
+            ${colors.greenColor} 80%,        
+            ${colors.whiteColor} 90%
           )`,
           transform: 'scale(1.1)',
           transformOrigin: 'center center',
