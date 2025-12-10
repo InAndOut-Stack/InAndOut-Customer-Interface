@@ -73,9 +73,18 @@ function Logo() {
                         gap: '128px',
                     }}>
 
-
-                        <img src={TitleImage} alt="The main text for the homepage" style={{width: '100%', height: '100%', maxWidth: '600px', maxHeight: '400px'}} />
-                        
+                        <Box component="img"
+                         src={TitleImage}
+                         sx={{
+                                position: 'relative',
+                                top: 0,
+                                left: 0,
+                                width: '100%', 
+                                height: '100%',
+                                objectFit: 'scale-down',
+                                zIndex: -1, 
+          }}
+      />                        
                        {/* <Box>
                             <Typography sx={{
                                 fontSize: '128px',
