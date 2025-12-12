@@ -3,10 +3,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline, Box } from '@mui/material'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import theme from './themes/theme'
-import HomePage from '../src/pages/Home'
-import CustomBackground from './components/Landing/Background';
-import CustomLogo from './components/Landing/Logo';
-import { Typography, Container } from '@mui/material';
+import HomePage from './pages/Home'
 
 function App() {
   return (
@@ -17,7 +14,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
           </Routes>
         </Router>
-        <HomePage />
     </ThemeProvider>
   )
 }

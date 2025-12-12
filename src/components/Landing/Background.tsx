@@ -28,8 +28,9 @@ const CustomBackground: React.FC<{ children: React.ReactNode }> = ({ children })
         sx={{
           position: 'absolute',
           inset: 0,
-          zIndex: -1,
+          zIndex: -100,
           pointerEvents: 'none',
+
           // radial gradient background
           backgroundImage: `radial-gradient(
             circle at 5% 5%, 
@@ -41,6 +42,7 @@ const CustomBackground: React.FC<{ children: React.ReactNode }> = ({ children })
             ${colors.greenColor} 80%,        
             ${colors.whiteColor} 90%
           )`,
+
           transform: 'scale(1.1)',
           transformOrigin: 'center center',
         }}
