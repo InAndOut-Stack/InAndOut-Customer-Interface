@@ -1,8 +1,7 @@
 // import React from 'react';
 
 import { Stack, Typography, Box, Button, Grid } from '@mui/material';
-import CustomBackground from './Background';
-import CarouselContainer from './Carousel/CarouselContainer';
+import { useState } from 'react';
 
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 import TitleImage from '../../assets/inandoutTITLE.png';
@@ -13,15 +12,14 @@ import CarouselElement from './Carousel/CarouselFinal';
 import MenuBar from './Menu/MenuBar';
 
 function Logo() {
-    return (
-        <CustomBackground>
+    const [isLandingPage, setIsLandingPage] = useState(1);
+    return ( isLandingPage &&
             <Grid container
                 spacing={2}
                 direction="row"
                 justifyContent="space-evenly"
                 alignContent="center"
                 alignItems="center"
-                
             >
                 <Grid size={2}>
                     <Stack sx={{
@@ -68,9 +66,9 @@ function Logo() {
                                 zIndex: -1,
                                 userSelect: 'none',
                                 pointerEvents: 'none',
-                            }}/>
-                        <CarouselElement/>
-                        <Button sx={{
+                            }} />
+                        <CarouselElement />
+                        <Button onClick={() => setIsLandingPage(0)} sx={{
                             width: '10.5rem',
                             height: '5rem',
                             display: 'flex',
@@ -134,17 +132,17 @@ function Logo() {
                     </Stack>
                 </Grid>
 
+                {/* WIP */}
+                <Box sx={{
+                    position: 'fixed',
+                    top: '20px',
+                    right: '20px',
+                    zIndex: 100,
+                }}>
+                    <MenuBar />
+                </Box>
+
             </Grid>
-            {/* WIP */}
-            <Box sx={{
-                position: 'fixed',
-                top: '20px',
-                right: '20px',
-                zIndex: 100,
-            }}>
-                <MenuBar />
-            </Box>
-        </CustomBackground>
     );
 };
 
