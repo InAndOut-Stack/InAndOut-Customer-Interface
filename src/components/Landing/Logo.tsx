@@ -10,6 +10,8 @@ import TitleImage from '../../assets/inandoutTITLE.png';
 import colors from '../../themes/colors';
 import CarouselElement from './Carousel/CarouselFinal';
 
+import MenuBar from './Menu/MenuBar';
+
 function Logo() {
     return (
         <CustomBackground>
@@ -133,6 +135,15 @@ function Logo() {
                 </Grid>
 
             </Grid>
+            {/* WIP */}
+            <Box sx={{
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                zIndex: 100,
+            }}>
+                <MenuBar />
+            </Box>
         </CustomBackground>
     );
 };
