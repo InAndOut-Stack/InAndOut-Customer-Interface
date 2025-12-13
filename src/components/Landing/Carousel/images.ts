@@ -8,6 +8,8 @@ const EImages = {
     image4: "https://placehold.co/400",
     image5: "https://placehold.co/425",
     image6: "https://placehold.co/500",
+    image7: "https://placehold.co/500",
+    image8: "https://placehold.co/500",
 }
 
 export default EImages;

@@ -1,4 +1,4 @@
-import LogoComp from "../../components/Landing/Logo";
+import LogoComp from "../../components/Landing/LandingPage";
 import { Stack } from "@mui/material";
 
 function HomePage() {
