@@ -1,0 +1,258 @@
+// Syntax documentation: https://dbml.dbdiagram.io/docs/
+
+//////////////////////////////////////////////////////
+// STORE STRUCTURE SECTION
+//////////////////////////////////////////////////////
+
+Table brand {
+  note: "A brand (e.g. Lidl) having one or multiple physical stores."
+
+  id int [not null, pk, increment]
+  name varchar(63) [not null]
+  logo_url varchar(255) [not null]
+}
+
+Table store {
+  note: "Physical store of a brand with geolocation."
+
+  id int [not null, pk, increment]
+  brand_id int [not null, ref: > brand.id]
+
+  timezone int [not null, default: 2, note: "Encoded as UCT+<this value>."]
+  
+  name varchar(63) [note: "A store might alter the brand name. e.g. Lidl -> Lidl Poland."]
+  description varchar(255) [note: "Anything, maybe some navigation suggestions."]
+  image_url varchar(255) [note: "If not provided, the brand logo is displayed instead."]
+  longitude double
+  latitude double
+
+  indexes {
+    name
+  }
+}
+
+Table floor {
+  note: "A floor of a specific physical store; each floor is an individual article map."
+  
+  id int [not null, pk, increment]
+  store_id int [not null, ref: > store.id]
+
+  // According to this: https://www.ricksteves.com/travel-tips/trip-planning/european-numbers
+  // In Europe the ground floor is considered to be the level 0.
+  // In American English this would be defaulted to 1 instead.
+  level int [not null, default: 0, note: "Zero stands for the street floor, one for the one above it, etc."]
+
+  indexes {
+    store_id
+  }
+}
+
+//////////////////////////////////////////////////////
+// LOCATION REPRESENTATION SECTION
+//////////////////////////////////////////////////////
+
+Table edge {
+  note: "Represents an aisle between two reachable floor points."
+
+  id int [not null, pk, increment]
+  floor_id int [not null, ref: > floor.id]
+
+  // These two must be on the same floor id.
+  // That id must be the same as this edge floor id.
+  source_node_id int [not null, ref: > node.id]
+  target_node_id int [not null, ref: > node.id]
+
+  name varchar(63) [note: "e.g. \"milk corridor\"."]
+  weight int
+
+  checks {
+    `source_node_id != target_node_id` [name: "An edge must be between two different nodes."]
+  }
+
+  indexes {
+    floor_id
+  }
+}
+
+Enum node_type {
+  navigation [note: "Either store corners or aisle intersections."]
+
+  // Should be defined for all floor except the highest one.
+  elevation [note: "An elevator or staircase to the level above."]
+  // Should be defined for all floors except the lowest one.
+  // This schema could also describe a store with underground levels.
+  descent [note: "An elevator or staircase to the level below."]
+}
+
+Table node {
+  note: "Client reachable area."
+  
+  id int [not null, pk, increment]
+  floor_id int [not null, ref: > floor.id]
+
+  number int [not null]
+  type node_type [not null, default: node_type.navigation]
+  name varchar(63) [note: "e.g. \"Start of the principal corridor\", \"Milk-toys intersection\"."]
+
+  indexes {
+    floor_id
+  }
+}
+
+//////////////////////////////////////////////////////
+// STORE AVAILABILITY SECTION
+//////////////////////////////////////////////////////
+
+Enum day_type {
+  MON
+  TUE
+  WED
+  THU
+  FRI
+  SAT
+  SUN
+}
+
+// A store could be opened in a day multiple times.
+// e.g. Krotz restaurant opens on Monday:
+  // for lunch between 14:00 - 16:00, and
+  // for dinner between 18:00 - 23:59.
+// e.g. If a store is open on Tuesday between 16:00 - 02:00,
+  // then its operating hours will be stored as follows:
+  // TUE - 16:00 - 23:59
+  // WED - 00:00 - 02:00
+Table operating {
+  // The registered store must include its schedule for all days.
+  note: "Operating hours for a store."
+  
+  id int [not null, pk, increment]
+  store_id int [not null, ref: > store.id]
+
+  day day_type [not null]
+  begin datetime [not null, default: "00:00", note: "When the sore opens."]
+  end datetime [not null, default: "23:59", note: "When the store closes."]
+}
+
+Table event {
+  note: "Can be a national holiday or a custom defined downtime."
+  
+  id int [not null, pk, increment]
+  
+  // It repeats every year if both fields define only the days and the months.
+  begin date [not null]
+  end date [not null]
+
+  name varchar(63)
+  description varchar(255)
+
+  checks {
+    `begin.year == end.year` [name: 'chk_valid_event']
+  }
+}
+
+Table break {
+  note: "Some days off for a store."
+  
+  store_id int [not null, ref: > store.id]
+  event_id int [not null, ref: > event.id]
+
+  indexes {
+    (store_id, event_id) [pk]
+  }
+}
+
+//////////////////////////////////////////////////////
+// PRODUCT SECTION
+//////////////////////////////////////////////////////
+
+Table product {
+  note: "Product catalog and details."
+
+  id int [not null, pk, increment]
+  
+  variant varchar(63) [note: "e.g. almond milk."]
+  subcategory varchar(63) [not null, note: "e.g. milk."]
+  category varchar(63) [not null, note: "e.g. dairy products."]
+
+  vendor varchar(63) [note: "e.g. Zuzu, Alpro, etc."]
+  image_url varchar(255)
+  description varchar(255)
+
+  indexes {
+    vendor
+  }
+}
+
+Table article {
+  note: "Product commercialized by a brand."
+
+  id int [not null, pk, increment]
+  product_id int [not null, ref: > product.id]
+  brand_id int [not null, ref: > brand.id]
+  
+  price double [not null, note: "Base price decided by the brand; may be increased/decreased by stores."]
+  currency varchar(255)
+}
+
+Table stand {
+  note: "Links an article to a a specific place on a shelf."
+  
+  id int [not null, pk, increment]
+  edge_id int [not null, ref: > edge.id]
+  article_id int [not null, ref: > article.id]
+
+  source_node_distance int [not null]
+
+  indexes {
+    (edge_id, article_id) [pk]
+  }
+}
+
+//////////////////////////////////////////////////////
+// DISCOUNT SECTION
+//////////////////////////////////////////////////////
+
+Table discount {
+  note: "Links an article to an offer."
+
+  article_id int [not null, ref: > article.id]
+  offer_id int [not null, ref: > offer.id]
+
+  indexes {
+    (article_id, offer_id) [pk]
+  }
+
+}
+
+Table offer {
+  note: "Promotional offer of a brand/store."
+
+  id int [not null, pk, increment]
+  period_id int [ref: > period.id, note: "Optional active time period in a day."]
+  store_id int [ref: > store.id, note: "If null, the offer applies to all stores of a brand."]
+
+  percentage int [not null]
+  created_at datetime [not null]
+  lifetime datetime
+}
+
+Table dependency {
+  note: "Required product quantity to activate an offer."
+  
+  offer_id int [not null, ref: > offer.id]
+  article_id int [not null, ref: > article.id]
+  quantity int
+
+  indexes {
+    (offer_id, article_id) [pk]
+  }
+}
+
+Table period {
+  note: "Daily time window for an offer."
+
+  id int [not null, pk, increment]
+  
+  begin datetime [not null, default: "00:00", note: "Start time of offer."]
+  end datetime [not null, default: "23:59", note: "End time of offer."]
+}
