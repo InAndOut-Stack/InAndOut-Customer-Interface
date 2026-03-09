@@ -1,70 +1,83 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <img src="./doc/InAndOut.logo.png" alt="logo" width="200" height="auto" />
+  <h1>InAndOut</h1>
+  <p>
+    A web application designed to minimize the time spent shopping by mapping the interior of registered stores and generating the optimal route for users.
+  </p>
 
-Currently, two official plugins are available:
+<p>
+  <a href="https://github.com/Vldddddd1/InAndOut/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Vldddddd1/InAndOut" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/Vldddddd1/InAndOut" alt="last update" />
+  </a>
+  <a href="https://github.com/Vldddddd1/InAndOut/network/members">
+    <img src="https://img.shields.io/github/forks/Vldddddd1/InAndOut" alt="forks" />
+  </a>
+  <a href="https://github.com/Vldddddd1/InAndOut/stargazers">
+    <img src="https://img.shields.io/github/stars/Vldddddd1/InAndOut" alt="stars" />
+  </a>
+  <a href="https://github.com/Vldddddd1/InAndOut/issues/">
+    <img src="https://img.shields.io/github/issues/Vldddddd1/InAndOut" alt="open issues" />
+  </a>
+  <a href="https://github.com/Vldddddd1/InAndOut/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/Vldddddd1/InAndOut.svg" alt="license" />
+  </a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h4>
+    <a href="./doc/demo.mp4">View Demo</a>
+  <span> · </span>
+    <a href="./doc/requirements.md">System requirments</a>
+  <span> · </span>
+    <a href="https://github.com/Vldddddd1/InAndOut/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/Vldddddd1/InAndOut/issues/">Request Feature</a>
+  </h4>
+</div>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+The primary goal is to help users find products efficiently. The core functionality solves the **Traveling Salesperson Problem (TSP)** within the context of a store layout, allowing users to select a list of products and receive an optimized itinerary to collect them.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Store Selection**: Choose a registered store.
+2. **Product Discovery**: List available articles in the selected store.
+3. **Smart Itinerary**:
+   - User selects products (locally on the client).
+   - Backend calculates the optimal path (TSP) through the store's aisles (edges) and intersections (nodes).
+   - This heavy calculation is handled asynchronously (returning a Job ID).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
 ## ⚛ Technology Stack
 
 This project follows a **Monorepo** approach.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project follows a **Monorepo** approach.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend**: React with TypeScript.
+- **Backend**: Java.
+- **Database**: PostgreSQL.
+- **API Modeling**: [Smithy](https://smithy.io/2.0/) (Interface Definition Language).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Build Instructions
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+TODO
+
+### Execution
+
+TODO
+
+---
+
+## 📰 References:
+
+https://docs.google.com/document/d/1HnRcB2SaG4f4QodOaaYZT4r4GYhibqBzA8wdl2zpID0/edit?pli=1&tab=t.0#heading=h.l24o73s4osth
+
+https://www.figma.com/design/7azMP7m6IgGHTwVgTPKf3R/In-Out?node-id=1-1045&p=f
+
+https://www.figma.com/design/BZ9Ezzy2PSLf8Hav5bMcn1/In-Out---App-MockUp?node-id=83-6&t=mezeZQIlcakN0zCW-0
