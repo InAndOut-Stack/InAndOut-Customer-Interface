@@ -1,4 +1,4 @@
-interface LinkType{
+interface LinkType {
     title: string;
     link: string;
 }
@@ -20,6 +20,6 @@ const Links: LinkType[] = [
         title: "FAQ",
         link: "/faq"
     }
-]
+];
 
 export default Links;

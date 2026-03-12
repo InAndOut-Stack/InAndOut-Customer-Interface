@@ -1,26 +1,19 @@
-import { Box, Stack, Grid, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import colors from '../../../themes/colors';
-interface MenuBarProps {
-    title?: string;
-    link?: string;
-}
-
-// function MenuBar({ title, link }: MenuBarProps) {
+import colors from '../../themes/colors';
 
 function MenuBar() {
-    const [IsOpen, SetIsOpen] = useState(0);
-
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
         <motion.div
             layout
             initial={{ width: 140, height: 60 }}
             animate={{
-                width: IsOpen ? 560 : 140,
+                width: isOpen ? 560 : 140,
                 height: 60,
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -37,15 +30,16 @@ function MenuBar() {
                 userSelect: 'none',
             }}
         >
-            {!IsOpen ? (
+            {!isOpen ? (
                 <motion.div>
                     <Box
-                        onClick={() => SetIsOpen(1)}
+                        onClick={() => setIsOpen(true)}
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '8px',
+                            cursor: 'pointer',
                         }}
                     >
                         <Typography sx={{
@@ -74,12 +68,13 @@ function MenuBar() {
                         width: '100%',
                     }}>
                     <Box
-                        onClick={() => SetIsOpen(0)}
+                        onClick={() => setIsOpen(false)}
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '8px',
+                            cursor: 'pointer',
                         }}
                     >
                         <Typography sx={{
@@ -115,10 +110,6 @@ function MenuBar() {
                         }}>
                             FAQ
                         </Typography>
-                        {/* <MenuIcon sx={{
-                            color: colors.orangeColor,
-                            fontSize: '32px',
-                        }} /> */}
                     </Box>
                     <Box
                         sx={{
@@ -138,10 +129,6 @@ function MenuBar() {
                         }}>
                             Docs
                         </Typography>
-                        {/* <MenuIcon sx={{
-                            color: colors.orangeColor,
-                            fontSize: '32px',
-                        }} /> */}
                     </Box>
                     <Box
                         sx={{
@@ -161,15 +148,11 @@ function MenuBar() {
                         }}>
                             GitHub
                         </Typography>
-                        {/* <MenuIcon sx={{
-                            color: colors.orangeColor,
-                            fontSize: '32px',
-                        }} /> */}
                     </Box>
                 </motion.div>
             )}
         </motion.div>
     );
-};
+}
 
 export default MenuBar;

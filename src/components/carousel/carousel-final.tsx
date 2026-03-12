@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 
-import CarouselContainer from './CarouselContainer';
+import CarouselContainer from './carousel-container';
 
 import images from './images';
 
@@ -47,7 +47,7 @@ const ParallaxItem = ({ image, index }: ParallaxItemProps) => {
     );
 };
 
-function CarouselElement(){
+function CarouselElement() {
     const itemCount = 14;
     const items = generateContent(itemCount);
     const dupeItems = [...items, ...items];
