@@ -53,20 +53,10 @@ The primary goal is to help users find products efficiently. The core functional
 
 ---
 
-## ⚛ Technology Stack
-
-This project follows a **Monorepo** approach.
-
-This project follows a **Monorepo** approach.
-
-- **Frontend**: React with TypeScript.
-- **Backend**: Java.
-- **Database**: PostgreSQL.
-- **API Modeling**: [Smithy](https://smithy.io/2.0/) (Interface Definition Language).
-
 ## 🛠 Build Instructions
 
-TODO
+- Install Smithy CLI
+- Install yarn
 
 ### Execution
 
