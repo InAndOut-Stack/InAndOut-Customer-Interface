@@ -20,8 +20,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/stores" element={<StoreSelectionPage />} />
-            <Route path="/stores/:storeId/stands" element={<StandSelectionPage />} />
-            <Route path="/itinerary-preview" element={<ItineraryPreviewPage />} />
+            <Route
+              path="/stores/:storeId/stands"
+              element={<StandSelectionPage />}
+            />
+            <Route
+              path="/itinerary-preview"
+              element={<ItineraryPreviewPage />}
+            />
           </Routes>
         </Router>
       </ThemeProvider>
