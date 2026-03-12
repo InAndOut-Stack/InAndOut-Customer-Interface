@@ -3,6 +3,9 @@ import { CssBaseline } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/home-page";
+import StoreSelectionPage from "./pages/store-selection/store-selection-page";
+import StandSelectionPage from "./pages/stand-selection/stand-selection-page";
+import ItineraryPreviewPage from "./pages/itinerary-preview/itinerary-preview-page";
 
 import CustomBackground from "./components/background/background";
 import "./app.css";
@@ -16,6 +19,9 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/stores" element={<StoreSelectionPage />} />
+            <Route path="/stores/:storeId/stands" element={<StandSelectionPage />} />
+            <Route path="/itinerary-preview" element={<ItineraryPreviewPage />} />
           </Routes>
         </Router>
       </ThemeProvider>

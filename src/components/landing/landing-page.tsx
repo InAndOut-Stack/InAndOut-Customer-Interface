@@ -1,5 +1,5 @@
 import { Stack, Typography, Box, Button, Grid } from '@mui/material';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 import TitleImage from '../../assets/images/inandout-title.png';
@@ -10,9 +10,9 @@ import CarouselElement from '../carousel/carousel-final';
 import MenuBar from '../menu/menu-bar';
 
 function Logo() {
-    const [isLandingPage, setIsLandingPage] = useState<boolean>(true);
+    const navigate = useNavigate();
 
-    return isLandingPage ? (
+    return (
         <Grid container
             spacing={2}
             direction="row"
@@ -65,7 +65,7 @@ function Logo() {
                             pointerEvents: 'none',
                         }} />
                     <CarouselElement />
-                    <Button onClick={() => setIsLandingPage(false)} sx={{
+                    <Button onClick={() => navigate('/stores')} sx={{
                         width: '10.5rem',
                         height: '5rem',
                         display: 'flex',
@@ -132,7 +132,7 @@ function Logo() {
                 <MenuBar />
             </Box>
         </Grid>
-    ) : null;
+    );
 }
 
 export default Logo;
