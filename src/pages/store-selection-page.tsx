@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -11,22 +12,9 @@ import {
   CircularProgress,
   Grid,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import colors from "../../themes/colors";
-import MenuBar from "../../components/menu/menu-bar";
-
-export interface StoreSummary {
-  storeId: string;
-  name: string;
-  brandId: string;
-  description: string;
-  imageUrl: string;
-  geoCoordinates: any;
-  operatingHoursMap: any;
-  timezone: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import colors from "../themes/colors";
+import MenuBar from "../components/menu/menu-bar";
+import type { StoreSummary } from "@inandout/client";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -43,15 +31,14 @@ export default function StoreSelectionPage() {
     brandId: `brand-uuid`,
     description: `Your favourite shopping center, ensuring fast routing and the freshest products available!`,
     imageUrl: `https://loremflickr.com/400/300/store?random=${i}`,
-    geoCoordinates: {},
+    geoCoordinates: { longitude: 12, latitude: 12 },
     operatingHoursMap: {},
-    timezone: "CET",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    timezone: 123,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }));
 
   useEffect(() => {
-    // According to user prompt: api call to /host/stores
     fetch("/host/stores")
       .then((res) => res.json())
       .then((data) => {

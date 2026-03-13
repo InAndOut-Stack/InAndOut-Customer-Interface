@@ -7,8 +7,8 @@ import {
   CardContent,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import colors from "../../themes/colors";
-import MenuBar from "../../components/menu/menu-bar";
+import colors from "../themes/colors";
+import MenuBar from "../components/menu/menu-bar";
 
 export default function ItineraryPreviewPage() {
   const navigate = useNavigate();

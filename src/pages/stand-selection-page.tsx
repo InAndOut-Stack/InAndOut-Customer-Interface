@@ -12,17 +12,9 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
-import colors from "../../themes/colors";
-import MenuBar from "../../components/menu/menu-bar";
-
-export interface StandSummary {
-  storeId: string;
-  standId: string;
-  articleId: string;
-  edgeId: string;
-  name?: string; // extended locally for UI
-  price?: number; // extended locally for UI
-}
+import colors from "../themes/colors";
+import MenuBar from "../components/menu/menu-bar";
+import type { StandSummary } from "@inandout/client";
 
 export default function StandSelectionPage() {
   const { storeId } = useParams();
@@ -41,6 +33,8 @@ export default function StandSelectionPage() {
     edgeId: "edge-uuid",
     name: `Grocery Item ${i + 1}`,
     price: Number((Math.random() * 20).toFixed(2)),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }));
 
   useEffect(() => {
